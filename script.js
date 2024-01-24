@@ -1,0 +1,45 @@
+const apiUrl = 'https://api.weatherapi.com/v1/current.json?key=0797854bc0224d0fa7b03310241901&q=';
+
+const myForm = document.getElementById('myForm');
+const details = document.getElementById('details');
+
+myForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const searchValue = document.getElementById('search').value.trim();
+  getDetails(searchValue);
+});
+
+
+
+async function getDetails(searchValue) {
+  try {
+    const response = await fetch(apiUrl + searchValue+ '&lang=es');
+    const data = await response.json();
+    
+    const current = data.current; 
+
+    details.innerHTML = `
+      <h2>Condiciones climáticas:</h2>
+      <div class="conditions">
+        <h3><strong>Temperatura en C°: </strong>${current.temp_c}</h3>
+        <h3><strong>Temperatura en F: </strong>${current.temp_f}</h3>
+        <h3><strong>Temperatura en K: </strong>${current.temp_c + 273.15}</h3>
+        <h3><strong>Humedad: </strong>${current.humidity}%</h3>
+        <h3>${current.condition.text}</h3>
+        <img src="${current.condition.icon}" style="object-fit: none">
+      </div>
+    `;
+    
+
+
+    
+
+  } catch (error) {
+    console.error('Error al obtener los detalles de la Publicación', error);
+    details.innerHTML = '<p>La ciudad ingresada no existe y/o no ha sido encontrada</p>';
+
+  }
+}
+
+const vaciar = document.getElementById('deleteButton');
+vaciar.addEventListener('click', () => details.innerHTML = '');
