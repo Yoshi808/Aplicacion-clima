@@ -21,12 +21,12 @@ async function getDetails(searchValue) {
     details.innerHTML = `
       <h2>Condiciones climáticas:</h2>
       <div class="conditions">
-        <h3><strong>Temperatura en C°: </strong>${current.temp_c}</h3>
-        <h3><strong>Temperatura en F: </strong>${current.temp_f}</h3>
-        <h3><strong>Temperatura en K: </strong>${current.temp_c + 273.15}</h3>
+        <h3><strong>Temperatura en C°: </strong>${Math.floor(current.temp_c)}</h3>
+        <h3><strong>Temperatura en F: </strong>${Math.floor(current.temp_f)}</h3>
+        <h3><strong>Temperatura en K: </strong>${Math.floor(current.temp_c + 273.15)}</h3>
         <h3><strong>Humedad: </strong>${current.humidity}%</h3>
-        <h3>${current.condition.text}</h3>
         <img src="${current.condition.icon}" style="object-fit: none">
+        <h4>${current.condition.text}</h4>
       </div>
     `;
     
