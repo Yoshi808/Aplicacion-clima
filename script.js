@@ -50,5 +50,5 @@ async function getDetails(searchValue) {
   }
 }
 
-const vaciar = document.getElementById('deleteButton');
+const vaciar = document.getElementById('vaciar');
 vaciar.addEventListener('click', () => details.innerHTML = '');
