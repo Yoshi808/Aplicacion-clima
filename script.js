@@ -17,10 +17,19 @@ async function getDetails(searchValue) {
     const data = await response.json();
     
     const current = data.current; 
+    const location = data.location;
 
     details.innerHTML = `
+      <h2>Locación:</h2>
+      <div class="information">
+        <h3><strong>Nombre: </strong>${location.name}</h3>
+        <h3><strong>Región: </strong>${location.region}</h3>
+        <h3><strong>País: </strong>${location.country}</h3>
+        <h3><strong>Fecha y hora: </strong>${location.localtime.replace(/ /g, " / ")}</h3>
+      </div>
+      <br>
       <h2>Condiciones climáticas:</h2>
-      <div class="conditions">
+      <div class="information">
         <h3><strong>Temperatura en C°: </strong>${Math.floor(current.temp_c)}</h3>
         <h3><strong>Temperatura en F: </strong>${Math.floor(current.temp_f)}</h3>
         <h3><strong>Temperatura en K: </strong>${Math.floor(current.temp_c + 273.15)}</h3>
