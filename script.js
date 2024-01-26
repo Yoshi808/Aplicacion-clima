@@ -45,7 +45,7 @@ async function getDetails(searchValue) {
 
   } catch (error) {
     console.error('Error al obtener los detalles de la Publicación', error);
-    details.innerHTML = '<p>La ciudad ingresada no existe y/o no ha sido encontrada</p>';
+    details.innerHTML = '<p>La ciudad ingresada no existe y/o no ha sido encontrada en el sistema</p>';
 
   }
 }
