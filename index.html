@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aplicación de clima</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="https://assets.msn.com/weathermapdata/1/static/weather/Icons/taskbar_v10/Condition_Card/MostlyCloudyNightV2.svg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
@@ -12,12 +14,12 @@
     <form id="myForm">
       <label for="search">Ver pronóstico actual:</label>
       <input type="text" id="search" placeholder="Ingrese una ciudad o país" required>
-      <button type="submit">Buscar</button>
+      <button class="enviar" type="submit">Buscar</button>
     </form>
     <div id="details">
       <!-- Los detalles seleccionados se mostrarán aquí -->
     </div>
-    <button id="vaciar" style="margin-top: 10px;">Vaciar</button>
+      <button id="vaciar">Vaciar</button>
   </div>
   <script src="script.js"></script>
 </body>
